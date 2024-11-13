@@ -39,6 +39,6 @@ int main() {
       i++;
     }
 
-    plane.report();
+    // plane.report();
     return 0;
 }

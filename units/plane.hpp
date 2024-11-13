@@ -22,7 +22,7 @@ static std::map<UnitTypes, std::string> UnitToString = {
     { PILOT, "PILOT" }, 
     { FLIGHT_ATTENDANT, "FLIGHT_ATTENDANT" }, 
 };
-class Plane {
+class Plane : public Unit {
   public:
     Plane() {};
     ~Plane() {};
