@@ -22,20 +22,21 @@ static std::map<UnitTypes, std::string> UnitToString = {
     { PILOT, "PILOT" }, 
     { FLIGHT_ATTENDANT, "FLIGHT_ATTENDANT" }, 
 };
-class Plane: public Unit {
+class Plane {
   public:
     Plane() {};
     ~Plane() {};
 
     void setUnitCapacity(const std::string& type, const int maxWeight);
-    void registerUnit(const UnitTypes& type, const std::vector<int> luggage);
+    void registerUnit(const UnitTypes& type, const std::vector<int> allBaggage);
 
+    Unit getUnit(const UnitTypes& type);
     int getTotalWeight();
-    int getHandWeightFromUnit(const UnitTypes& type);
-    int getWeightFromUnit(const UnitTypes& type);
-    int getTotalWeightFromUnit(const UnitTypes& type);
+    int getHandWeightOfUnit(const UnitTypes& type);
+    int getWeightOfUnit(const UnitTypes& type);
+    int getTotalWeightOfUnit(const UnitTypes& type);
 
-    void report();
+    // void report();a
 
     private:
         std::map<UnitTypes, Unit> planeUnit = {

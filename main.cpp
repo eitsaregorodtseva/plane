@@ -16,7 +16,7 @@ int main() {
     while (std::getline(std::cin, line) && line.size() > 0) {
       std::istringstream iss(line);
       std::string type;
-      std::vector<int> luggage;
+      std::vector<int> baggage;
       int weight;
 
       iss >> type;
@@ -26,12 +26,12 @@ int main() {
         plane.setUnitCapacity(type, weight);
       } else {
         while (iss >> weight) {
-          luggage.push_back(weight);
+          baggage.push_back(weight);
         }
 
         for (auto i : UnitToString) {
           if (i.second == type) {
-            plane.registerUnit(i.first, luggage);
+            plane.registerUnit(i.first, baggage);
           }
         }
       }

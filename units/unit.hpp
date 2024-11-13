@@ -2,7 +2,9 @@
 #define UNIT_HPP
 
 #include "crew_members.hpp"
+#include "crew_members.cpp"
 #include "passengers.hpp"
+#include "passengers.cpp"
 #include "plane.hpp"
 #include <iostream>
 
@@ -12,25 +14,28 @@ private:
     int handWeight = 0; 
     int weight = 0; 
     int weightCapacity = 0;
-
-public:
     Passengers passengers;
 
+public:
     Unit() {};
     Unit(int id, int capacity, int maxHandItems, int maxHandWeight, int maxItems, int maxWeight) {
         this->setId(id);
-        this->passengers.capacity = capacity;
-        this->passengers.maxHandItems = maxHandItems;
-        this->passengers.maxHandWeight = maxHandWeight;
-        this->passengers.maxItems = maxItems;
-        this->passengers.maxWeight = maxWeight;
+        this->passengers.setCapacity(capacity);
+        this->passengers.setMaxHandItems(maxHandItems);
+        this->passengers.setMaxHandWeight(maxHandWeight);
+        this->passengers.setMaxItems(maxItems);
+        this->passengers.setMaxWeight(maxWeight);
     };
     ~Unit() {};
+
+    Passengers& getPassengers() {
+        return this->passengers;
+    };
 
     int getId() {
         return this->id;
     };
-    int setId(int id) {
+    void setId(int id) {
         this->id = id;
     };
     void setUnitCapacity(const int& weight) {
@@ -49,7 +54,6 @@ public:
         this->weight += weight;
     };
     void removeWeight(int weight) {
-        std::cout << weight << " removed " << std::endl; 
         this->weight -= weight;
     };
     int getUnitCapacity() {
@@ -65,11 +69,11 @@ public:
     };
 
     void addPassanger() {
-       this->passengers.count++; 
+       this->passengers.incrementCount(); 
     }
 
     void addBaggage(int baggage) {
-       this->passengers.baggage.push_back(baggage); 
+       this->passengers.addBaggage(baggage); 
     };
 
 

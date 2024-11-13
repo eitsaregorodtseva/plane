@@ -6,9 +6,30 @@ public:
     CrewMembers() {};
     ~CrewMembers() {};
 
-    int getHandWeight();
-    int getWeight();
+    void setCapacity(int capacity);
+    void incrementCount();
 
+    void setMaxWeight(int weight);
+    void setMaxItems(int items);
+
+    void setMaxHandWeight(int weight);
+    void setMaxHandItems(int items);
+
+    void setCurrHandWeight(int weight);
+    void setCurrWeight(int weight);
+
+    int getCurrHandWeight();
+    int getCurrWeight();
+
+    int getCapacity();
+    int getCount();
+
+    int getMaxHandItems();
+    int getMaxItems();
+    int getMaxWeight();
+    int getMaxHandWeight();
+
+private:
     int capacity = 0;
     int count = 0;
 
