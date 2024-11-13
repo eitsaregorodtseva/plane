@@ -1,3 +1,9 @@
 #include "crew_members.hpp"
 
-CrewMember::CrewMember() {}
+int CrewMembers::getHandWeight() {
+    return this->currHandWeight;
+};
+
+int CrewMembers::getWeight() {
+    return this->currWeight;
+};
