@@ -3,6 +3,7 @@
 #include <sstream>
 #include <algorithm>
 
+
 int Plane::getHandWeightFromUnit(const UnitTypes &type)
 {
   return this->planeUnit[type].getHandWeight();
@@ -67,7 +68,7 @@ void Plane::registerUnit(const UnitTypes &type, const std::vector<int> luggage)
 
     if (handWeight <= this->planeUnit[type].passengers.maxHandWeight && weight <= this->planeUnit[type].passengers.maxWeight && (currentWeight + handWeight) <= this->planeUnit[type].getUnitCapacity())
     {
-      this->planeUnit[type].passengers.count++;
+      this->planeUnit[type].addPassanger();
       this->planeUnit[type].addHandWeight(handWeight);
 
       for (int i = 0; i < baggage.size(); i++)
@@ -80,7 +81,7 @@ void Plane::registerUnit(const UnitTypes &type, const std::vector<int> luggage)
         else
         {
           this->planeUnit[type].addWeight(baggage[i]);
-          this->planeUnit[type].passengers.baggage.push_back(baggage[i]);
+          this->planeUnit[type].addBaggage(baggage[i]);
         }
       }
       
@@ -99,7 +100,7 @@ void Plane::registerUnit(const UnitTypes &type, const std::vector<int> luggage)
             for (int i = 0; i < size; i++) {
               if (this->getTotalWeightFromUnit(UnitTypes::ECONOMY) + noFitBaggage[i] <= this->planeUnit[ECONOMY].getUnitCapacity()) {
                 this->planeUnit[ECONOMY].addWeight(noFitBaggage[i]);
-                this->planeUnit[ECONOMY].passengers.baggage.push_back(noFitBaggage[i]);
+                this->planeUnit[ECONOMY].addBaggage(noFitBaggage[i]);
                 noFitBaggage.erase(noFitBaggage.begin() + i);
                 size--;
               }

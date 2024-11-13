@@ -10,8 +10,8 @@ public:
 
   Passengers() {};
   ~Passengers() {};
-  Passengers(const std::vector<int>& baggage);
   const std::vector<int>& getBaggage();
+  void addBaggage(int baggage);
 };
 
 #endif

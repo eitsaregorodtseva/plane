@@ -64,6 +64,15 @@ public:
         std::cout << "!!PASSENGER’S LUGGAGE REMOVED FROM FLIGHT, ID = " << this->getId() << "!!" << std::endl;
     };
 
+    void addPassanger() {
+       this->passengers.count++; 
+    }
+
+    void addBaggage(int baggage) {
+       this->passengers.baggage.push_back(baggage); 
+    };
+
+
     virtual void registerUnit() {};
 };
 

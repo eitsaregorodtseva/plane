@@ -1,7 +1,7 @@
 #include "passengers.hpp"
 
-Passengers::Passengers(const std::vector<int>& baggage) {
-    this->baggage = baggage;
+void Passengers::addBaggage(int baggage) {
+    this->baggage.push_back(baggage);
 }
 
 const std::vector<int>& Passengers::getBaggage() {
